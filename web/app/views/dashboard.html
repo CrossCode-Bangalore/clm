@@ -1,0 +1,154 @@
+
+<div class="container-fluid" ng-controller="DashboardCtrl">
+   
+    <div class="row clm-row-1">
+      <div class="col-md-4 clm-box-1"><div class="clm-big-box-1">
+            <div class="col-md-2"><span class="glyphicon glyphicon-user clm-icon-1"></span></div>
+            <div class="col-md-10 clm-bigbox-details">
+                <span>Mr.Samuel L Jackson</span>
+                <span>#102,2nd cross,9th main</span>
+                <span>Malleshwaram,Banglore</span>
+                <span>5600101</span>
+            </div>
+            <div class="col-md-12 clm-toolbar-1">
+                <span class="fa fa-birthday-cake" title="Date of Birth"></span>
+                <span class="icon-calendar2" title="DOA"></span>
+                <span class="icon-happy" title="Smile"></span>
+                <a href="#edituserprofile" class="fa fa-pencil-square-o" title="Edit" ></a>
+            </div>
+      </div></div>
+      <div class="col-md-4 clm-box-1"><div class="clm-big-box-2">
+            <div class="col-md-2"><span class="fa fa-car clm-icon-1"></span></div>
+            <div class="col-md-10 clm-bigbox-details">
+                <span>Maruti SX ZDI</span>
+                <span>Maruthi</span>
+                <span>KA01M3 2014</span>
+                <span>M103268109676</span>
+            </div>
+            <div class="col-md-12 clm-toolbar-1">
+                <span class="" title="">2</span>
+                <span class="fa fa-calendar" title="Sale Date"></span>
+                <span class="icon-gauge" title="Fuel"></span>
+                <span class="fa fa-pencil-square-o" title="Edit"></span>
+            </div>
+      </div></div>
+      <div class="col-md-4 clm-box-1"><div class="clm-big-box-3">
+            <div class="col-md-2"><span class="glyphicon glyphicon-user clm-icon-1"></span></div>
+            <div class="col-md-10 clm-bigbox-details">
+                <span>Mr.Samuel L Jackson</span>
+                <span>#102,2nd cross,9th main</span>
+                <span>Malleshwaram,Banglore</span>
+                <span>5600101</span>
+            </div>
+            <div class="col-md-12 clm-toolbar-1">
+                <span class="glyphicon glyphicon-calendar" title="Date of Birth"></span>
+                <span class="icon-calendar2" title="DOA"></span>
+                <span class="icon-happy" title="Smile"></span>
+                <span class="fa fa-pencil-square-o" title="Edit"></span>
+            </div>
+      </div></div>
+    </div>
+    <div class="row clm-row-1">
+        <ul class="nav clm-tabs-1">
+          <li class="col-md-2 active"><a ng-click="info.grid.type='owner'">Owner</a></li>
+          <li class="col-md-2"><a ng-click="info.grid.type='car'">Car</a></li>
+          <li class="col-md-2"><a >Policy</a></li>
+          <li class="col-md-2"><a >Jobcard</a></li>
+          <li class="col-md-2"><a >Previous History</a></li>
+          <li class="col-md-2"><a >Invoices</a></li>
+        </ul>
+    </div>
+   
+    <div class="row clm-row-1">
+        <!-- Owner's details grid view -->
+        <div class="table-responsive" ng-show="info.grid.type == 'owner'">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>S.No</th>
+                        <th>Status</th>
+                        <th>Car</th>
+                        <th>Hold Time</th>
+                        <th>Agent Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in info.data">
+                        <td>{{$index}}</td>
+                        <td>{{person.Name}}</td>
+                        <td>{{person.Age|number}}</td>
+                        <td>{{person.Salary|currency}}</td>
+                        <td>{{person.City}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive" ng-show="info.grid.type == 'car'">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Engine No</th>
+                        <th>Chasis No</th>
+                        <th>outlet</th>
+                        <th>Delivery Date</th>
+                        <th>Order Date</th>
+                        <th>Invoice Date</th>
+                        <th>Owner Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in info.data">
+                        <td>{{$index}}</td>
+                        <td>{{person.Name}}</td>
+                        <td>{{person.Age|number}}</td>
+                        <td>{{person.Salary|currency}}</td>
+                        <td>{{person.City}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="row clm-task-separator">
+        <h3 class="clm-task-head"><span>Tasks</span></h3>
+    </div>
+
+    <div class="row clm-row-1">
+        <ul class="nav clm-tabs-2">
+          <li class="col-md-3 active"><a href="#" ng-click="">
+            <div>
+                <span>Ins Renew</span>
+                <span>Date - 24/12/13</span>
+                <span>Premium – INR 6078</span>
+            </div>
+          </a></li>
+          <li class="col-md-3"><a href="#" ng-click="">
+            <div>
+                <span>Service</span>
+                <span>Due date - 24/12/13</span>
+                <span>45000Kms</span>
+            </div>
+
+          </a></li>
+          <li class="col-md-3"><a href="#" ng-click="">
+            <div>
+                <span>Ext Warranty</span>
+                <span>Due date - 24/12/13</span>
+                <span>INR 6000</span>
+            </div>
+
+          </a></li>
+          <li class="col-md-3"><a href="#" ng-click="">
+            <div>
+                <span>Ins Renew</span>
+                <span>Date - 24/12/13</span>
+                <span>Premium – INR 6078</span>
+            </div>
+
+          </a></li>
+        </ul>
+    </div>
+</div>

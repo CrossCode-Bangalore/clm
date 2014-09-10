@@ -1,0 +1,36 @@
+[{
+    "Name": "vinayaka",
+    "Age": 23,
+    "Salary" : 26000,
+    "City" : "Davangere"
+},
+{
+    "Name": "Yogesh",
+    "Age": 25,
+    "Salary" : 40000,
+    "City" : "Ramanagar"
+},
+{
+    "Name": "Nithesh",
+    "Age": 26,
+    "Salary" : 30000,
+    "City" : "Nittur"
+},
+{
+    "Name": "Mahesh",
+    "Age": 26,
+    "Salary" : 60000,
+    "City" : "Bidar"
+},
+{
+    "Name": "Pavan",
+    "Age": 23,
+    "Salary" : 43200,
+    "City" : "NA"
+},
+{
+    "Name": "Vijayendra",
+    "Age": 23,
+    "Salary" : 30000,
+    "City" : "Davangere"
+}]

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="clmApp">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+        <title>CLM</title>
+        <!-- Bootstrap core CSS -->
+        <link href="scripts/vendors/bootstrap-3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="styles/common.css" rel="stylesheet">
+        <link href="scripts/vendors/icomoon/style.css" rel="stylesheet">
+        <link href="scripts/vendors/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media
+        queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <style type="text/css"></style>
+    </head>
+
+    <body ng-controller="AppCtrl">
+        <div class="navbar navbar-inverse navbar-fixed-top clm-navbar" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand hide" href="#" ></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="clm-nav-toggleMenu">
+                            <a><span class="glyphicon glyphicon-align-justify" ng-click="info.showLeftNav=!info.showLeftNav"></span></a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle clm-nav-campaign-btn" data-toggle="dropdown">{{info.campaign.name}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="label in info.campaign.labels" ng-click="info.campaign.name=label">
+                                    <a href="#{{label}}">{{label}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown clm-nav-item-l-r-border">
+                            <a class="dropdown-toggle clm-status" data-toggle="dropdown" 
+                            ng-class="{'clm-status-online': info.user.currentStatus=='online', 'clm-status-offline': info.user.currentStatus=='offline', 'clm-status-ideal': info.user.currentStatus=='ideal'}" 
+                            ></a>
+                            <ul class="dropdown-menu pull-right clm-status-dropdown" role="menu">
+                                <li ng-repeat="status in info.user.status">
+                                    <a class="clm-status clm-status-{{status}}" ng-click="info.user.currentStatus=status"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <table width="100px" height="50px">
+                                <tbody>
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <span id="time" style="padding-bottom: 21px;padding-top: 21px;color:#7e878b;font-family: digital; font-weight:bold; font-size: 20px;">00:12:45</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="clm-nav-myaccount">MY ACCOUNT</a>
+                        </li>
+                        <li>
+                            <a href="#" class="clm-nav-logout"><span class="glyphicon glyphicon-off"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row" draggable="true">
+                <div class="sidebar" ng-show="info.showLeftNav">
+                    <ul class="nav nav-sidebar">
+                        <li ng-class="{'active' : meta.curr_page=='dashboard'}">
+                            <a href="#dashboard" ng-click="meta.curr_tab='dashboard';meta.curr_page='dashboard'"><div class="icon-meter2">              
+                                </div>Dashboard</a>
+                        </li>
+                        <li ng-class="{'active' : meta.curr_page=='telephony'}">
+                            <a href="#telephony" ng-click="meta.curr_tab='telephony';meta.curr_page='telephony'"><div class="icon-phone">              
+                                </div>Telephony</a>
+                        </li>
+                        <li ng-class="{'active' : meta.curr_page=='open_items'}">
+                            <a href="#open_items" ng-click="meta.curr_tab='open_items'; meta.curr_page='open_items'"><div class="icon-tags">              
+                                </div>Open Items </a>
+                        </li>
+                        <li ng-class="{'active' : meta.curr_page=='chats'}">
+                            <a href="#chats" ng-click="meta.curr_tab='chats'; meta.curr_page='chats'"><span class="badge">5</span> <div class="icon-bubble">             
+                                </div>Unread Chats</a>
+                        </li>
+                        <li ng-class="{'active' : meta.curr_page=='alerts'}">
+                            <a href="#alerts" ng-click="meta.curr_tab='alerts'; meta.curr_page='alerts'"><span class="badge">7</span><div class="icon-bell">             
+                                </div>Alerts </a>
+                        </li>
+                        <li ng-class="{'active' : meta.curr_page=='summary'}">
+                            <a href="#summary" ng-click="meta.curr_tab='summary'; meta.curr_page='summary'"><div class="icon-ticket">              
+                                </div>Ticket Summary</a>
+                        </li>
+                    </ul>
+                </div>
+				<div ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}"  ng-show="meta.curr_tab=='route'" ng-view></div>
+				
+                <ng-include src="'views/dashboard.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}"   ng-show="meta.curr_tab=='dashboard'"></ng-include>
+                
+				<ng-include src="'views/telephony.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='telephony'"></ng-include>
+                <ng-include src="'views/open_items.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='open_items'"></ng-include>
+                <ng-include src="'views/chats.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='chats'"></ng-include>
+                <ng-include src="'views/alerts.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='alerts'"></ng-include>
+                <ng-include src="'views/summary.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='summary'"></ng-include>
+            </div>
+        </div>
+
+
+
+
+        <script src="scripts/vendors/jquery-1.11.1.min.js"></script>
+        <script src="scripts/vendors/bootstrap-3.1/js/bootstrap.min.js"></script>
+        <script src="scripts/vendors/angular-1.2.23/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/vendors/angular-1.2.23/angular-route.js"></script>
+        <script src="scripts/vendors/bootstrap-3.1/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers.js"></script>
+        <script src="scripts/services.js"></script>
+        <script src="scripts/filters.js"></script>
+        <script src="scripts/directives.js"></script>
+        <script src="scripts/globals.js"></script>
+    </body>
+
+</html>
