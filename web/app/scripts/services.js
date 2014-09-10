@@ -22,4 +22,14 @@ angular.module('clmApp.services', [])
                 });
             }
         };
-    }]);
+    }])
+    .factory('ProfileService', ['$http', function($http) {
+        return {
+            getData: function() {
+                return $http({
+                    url: 'stat/table_data.json',
+                    method: 'GET'
+                });
+            }
+        };
+    }]);;

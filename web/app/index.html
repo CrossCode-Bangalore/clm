@@ -85,48 +85,47 @@
 
         <div class="container-fluid">
             <div class="row" draggable="true">
-                <div class="sidebar" ng-show="info.showLeftNav">
-                    <ul class="nav nav-sidebar">
-                        <li ng-class="{'active' : meta.curr_page=='dashboard'}">
-                            <a href="#dashboard" ng-click="meta.curr_tab='dashboard';meta.curr_page='dashboard'"><div class="icon-meter2">              
-                                </div>Dashboard</a>
-                        </li>
-                        <li ng-class="{'active' : meta.curr_page=='telephony'}">
-                            <a href="#telephony" ng-click="meta.curr_tab='telephony';meta.curr_page='telephony'"><div class="icon-phone">              
-                                </div>Telephony</a>
-                        </li>
-                        <li ng-class="{'active' : meta.curr_page=='open_items'}">
-                            <a href="#open_items" ng-click="meta.curr_tab='open_items'; meta.curr_page='open_items'"><div class="icon-tags">              
-                                </div>Open Items </a>
-                        </li>
-                        <li ng-class="{'active' : meta.curr_page=='chats'}">
-                            <a href="#chats" ng-click="meta.curr_tab='chats'; meta.curr_page='chats'"><span class="badge">5</span> <div class="icon-bubble">             
-                                </div>Unread Chats</a>
-                        </li>
-                        <li ng-class="{'active' : meta.curr_page=='alerts'}">
-                            <a href="#alerts" ng-click="meta.curr_tab='alerts'; meta.curr_page='alerts'"><span class="badge">7</span><div class="icon-bell">             
-                                </div>Alerts </a>
-                        </li>
-                        <li ng-class="{'active' : meta.curr_page=='summary'}">
-                            <a href="#summary" ng-click="meta.curr_tab='summary'; meta.curr_page='summary'"><div class="icon-ticket">              
-                                </div>Ticket Summary</a>
-                        </li>
-                    </ul>
+                <div class="col-xs-1">
+                    <div class="sidebar" ng-show="info.showLeftNav">
+                        <ul class="nav nav-sidebar">
+                            <li ng-class="{'active' : meta.curr_page=='dashboard'}">
+                                <a href="#dashboard" ng-click="meta.curr_tab='dashboard';meta.curr_page='dashboard'"><div class="icon-meter2">              
+                                    </div>Dashboard</a>
+                            </li>
+                            <li ng-class="{'active' : meta.curr_page=='telephony'}">
+                                <a href="#telephony" ng-click="meta.curr_tab='telephony';meta.curr_page='telephony'"><div class="icon-phone">              
+                                    </div>Telephony</a>
+                            </li>
+                            <li ng-class="{'active' : meta.curr_page=='open_items'}">
+                                <a href="#open_items" ng-click="meta.curr_tab='open_items'; meta.curr_page='open_items'"><div class="icon-tags">              
+                                    </div>Open Items </a>
+                            </li>
+                            <li ng-class="{'active' : meta.curr_page=='chats'}">
+                                <a href="#chats" ng-click="meta.curr_tab='chats'; meta.curr_page='chats'"><span class="badge">5</span> <div class="icon-bubble">             
+                                    </div>Unread Chats</a>
+                            </li>
+                            <li ng-class="{'active' : meta.curr_page=='alerts'}">
+                                <a href="#alerts" ng-click="meta.curr_tab='alerts'; meta.curr_page='alerts'"><span class="badge">7</span><div class="icon-bell">             
+                                    </div>Alerts </a>
+                            </li>
+                            <li ng-class="{'active' : meta.curr_page=='summary'}">
+                                <a href="#summary" ng-click="meta.curr_tab='summary'; meta.curr_page='summary'"><div class="icon-ticket">              
+                                    </div>Ticket Summary</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-				<div ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}"  ng-show="meta.curr_tab=='route'" ng-view></div>
-				
-                <ng-include src="'views/dashboard.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}"   ng-show="meta.curr_tab=='dashboard'"></ng-include>
-                
-				<ng-include src="'views/telephony.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='telephony'"></ng-include>
-                <ng-include src="'views/open_items.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='open_items'"></ng-include>
-                <ng-include src="'views/chats.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='chats'"></ng-include>
-                <ng-include src="'views/alerts.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='alerts'"></ng-include>
-                <ng-include src="'views/summary.html'" ng-class="{'col-sm-11 col-sm-offset-1':info.showLeftNav}" ng-show="meta.curr_tab=='summary'"></ng-include>
+                <div class="col-xs-12" ng-class="{'col-xs-11 col-xs-offset-1':info.showLeftNav}">
+    				<div  ng-show="meta.curr_tab=='dashboardDetails'" ng-view></div>
+                    <ng-include src="'views/dashboard.html'"  ng-show="meta.curr_tab=='dashboard'"></ng-include>
+    				<ng-include src="'views/telephony.html'" ng-show="meta.curr_tab=='telephony'"></ng-include>
+                    <ng-include src="'views/open_items.html'" ng-show="meta.curr_tab=='open_items'"></ng-include>
+                    <ng-include src="'views/chats.html'" ng-show="meta.curr_tab=='chats'"></ng-include>
+                    <ng-include src="'views/alerts.html'" ng-show="meta.curr_tab=='alerts'"></ng-include>
+                    <ng-include src="'views/summary.html'" ng-show="meta.curr_tab=='summary'"></ng-include>
+                <div>
             </div>
         </div>
-
-
-
 
         <script src="scripts/vendors/jquery-1.11.1.min.js"></script>
         <script src="scripts/vendors/bootstrap-3.1/js/bootstrap.min.js"></script>

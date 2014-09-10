@@ -385,6 +385,16 @@ padding: 2px;
   margin: 20px 0;
   padding-left: 0;
 }
+.clm-box-2{
+  height: 100px;
+  margin: 0;
+  padding-left: 0;
+}
+.clm-box-3{
+  height: 80px;
+  margin: 0;
+  padding-left: 0;
+}
 .clm-big-box-1{
   background-color: #1fbbae;
   height: 100%;
@@ -397,6 +407,23 @@ padding: 2px;
   background-color: #c89191;
   height: 100%;
 }
+.clm-big-box-blue{
+  background-color: #09b9db;
+  height: 100%;
+}
+.clm-big-box-green{
+  background-color: #1fbbae;
+  height: 100%;  
+}
+.clm-big-box-brown{
+  background-color: #c89191;
+  height: 100%;  
+}
+.clm-big-box-darkestblue{
+  background-color: #34495e;
+  height: 100%;  
+}
+
 .clm-tabs-1>li{  
   margin-top: 5px;
   padding-left:0;
@@ -445,10 +472,15 @@ font-size: 16px;
   margin-left: 0;
   margin-right: 0;
 }
+.clm-table-fullwidth{
+
+  width: 100%;
+}
 .clm-bigbox-details{
   text-align: right;
   color: #fff;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 .clm-bigbox-details span{
   display: block;
@@ -460,14 +492,15 @@ font-size: 16px;
 .clm-icon-1{
   color: #fff;
   font-size: 55px !important;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 .clm-toolbar-1{
   color: #fff;
 }
 .clm-toolbar-1 span{
   font-size: 20px;
-  margin: 0 25px 10px 0;
+  margin: 0 12px 15px 12px;
 }
 .clm-toolbar-1 a,
 .clm-toolbar-1 a:hover,
@@ -476,4 +509,15 @@ font-size: 16px;
   color: #fff;
   text-decoration: none;
   margin: 0 25px 10px 0;
+}
+.clm-cell-center-align{
+  text-align: center;
+  color: #fff;
+}
+.clm-cell-profileimage{
+  width: 130px;
+}
+.container-fluid{  
+  padding-left: 10px;
+  padding-right: 10px;
 }

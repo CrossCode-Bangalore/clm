@@ -16,6 +16,9 @@ clmApp.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'views/edituserprofile.html',
     //controller: 'ListController'
   }).
+  when('/editcardetails', {
+    templateUrl: 'views/editcardetails.html',
+  }).
   when('/telephony', {
   }).
   when('/open_items', {

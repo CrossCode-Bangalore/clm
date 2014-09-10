@@ -26,8 +26,8 @@ angular.module('clmApp.controllers', ['clmApp.services'])
 				var pageName = next.split('#');
 				console.log("pageName ->>" + pageName.length);
 				if(pageName.length && pageName.length > 1){
-					if(pageName[1] == "/edituserprofile"){
-						$scope.meta.curr_tab = "route";
+					if(pageName[1] == "/edituserprofile" || pageName[1] == "/editcardetails" ){
+						$scope.meta.curr_tab = "dashboardDetails";
 						$scope.meta.curr_page = "dashboard";
 					}else if(pageName[1] == "/dashboard"){
 						$scope.meta.curr_tab = "dashboard";
@@ -65,5 +65,19 @@ angular.module('clmApp.controllers', ['clmApp.services'])
             }, function(response) {
                 console.error(response.data);
             });
-        }]);
+        }])
+        .controller('ProfileCtrl', ['$scope',  'ProfileService', function($scope, ProfileService) {
+            $scope.info = {};
+            $scope.info.name = "Mr. Samule.L.Jackson";
+            $scope.info.car = {};
+            $scope.info.car.company = "";
+            $scope.info.car.model = "";
+            $scope.info.car.engine = "";
+            $scope.info.car.reg = "";
+            // ProfileService.getData().then(function(response) {
+            //     $scope.info.data = response.data;
+            // }, function(response) {
+            //     console.error(response.data);
+            // });
+        }]);;
         
